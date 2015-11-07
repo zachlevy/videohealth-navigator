@@ -25,6 +25,10 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    if params[:timeline_id].blank?
+      @timeline = Timeline.create
+      @video.timeline_id = @timeline.id
+    end
 
     respond_to do |format|
       if @video.save

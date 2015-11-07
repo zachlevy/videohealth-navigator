@@ -1,8 +1,7 @@
-<%= form_for(@video) do |f| %>
+<%= bootstrap_form_for(@video) do |f| %>
   <% if @video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
-
       <ul>
       <% @video.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,14 +10,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :timeline_id %><br>
-    <%= f.text_field :timeline_id %>
-  </div>
+  <%= f.text_field :url %>
+  <%= f.text_field :timeline_id %>
   <div class="actions">
     <%= f.submit %>
   </div>
