@@ -73,6 +73,10 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :timeline_id)
+      puts "params[:MyFirstCamera][:video_uuid]"
+      puts params[:MyFirstCamera][:video_uuid]
+      params.require(:video).permit(:url, :timeline_id).merge(
+        url: params[:MyFirstCamera][:video_uuid]
+      )
     end
 end
