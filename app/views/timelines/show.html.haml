@@ -1,4 +1,8 @@
 %p#notice= notice
 
 - @timeline.videos.each do |video|
-  %p= video.url
+
+  %p
+  %strong Url:
+  %video#rando{"data-uuid" => '["' + @video.url + '"]'}
+  = @video.url
